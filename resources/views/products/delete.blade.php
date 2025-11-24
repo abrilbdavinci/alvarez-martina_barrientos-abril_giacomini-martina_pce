@@ -3,7 +3,8 @@
 ?>
 
 <x-layout>
-    <x-slot:title>Eliminar Producto {{ $product->name }}</x-slot:title>
+    <div class="container my-5">
+        <x-slot:title>Eliminar Producto {{ $product->name }}</x-slot:title>
 
     <h1 class="mb-3">Confirmación para eliminar {{ $product->name }}</h1>
 
@@ -12,4 +13,5 @@
         @method('DELETE')
         <button type="submit" class="btn btn-danger">Eliminar {{ $product->name }}</button>
     </form>
+    </div>
 </x-layout>

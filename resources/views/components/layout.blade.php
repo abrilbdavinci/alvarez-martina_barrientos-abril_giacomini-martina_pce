@@ -13,7 +13,7 @@
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <!-- google fonts -->
-     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
 </head>
@@ -66,7 +66,7 @@
             <div class="text-end d-flex flex-column align-items-end flex-wrap">
                 <img style="height: 2vw;" src="https://files.catbox.moe/g9rtvz.svg" alt="Kälm logo">
                 <p class="mt-3">Escuela Da Vinci - DWM4AP</p>
-                <p>Clientes Web Mobile, Parcial 1. Alvarez, Barrientos, Giacomini</p>
+                <p>Clientes Web Mobile, Parcial 2. Alvarez, Barrientos, Giacomini</p>
             </div>
         </div>
     </footer>
