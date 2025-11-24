@@ -14,6 +14,7 @@ class ReviewSeeder extends Seeder
                 'user_id' => 1,
                 'rating' => 5,
                 'product_id' => 1,
+                'author' => 'usuario',
                 'comment' => 'Amazing product, really improved my skin!',
                 'created_at' => now(),
                 'updated_at' => now()
@@ -23,6 +24,7 @@ class ReviewSeeder extends Seeder
                 'user_id' => 1,
                 'rating' => 4,
                 'product_id' => 1,
+                'author' => 'usuario',
                 'comment' => 'Hair feels stronger after using this oil.',
                 'created_at' => now(),
                 'updated_at' => now()

@@ -13,13 +13,16 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ $product->name }}</h5>
                             <p class="card-text">{{ Str::limit($product->description, 100) }}</p>
+                            <p class="card-text"><strong>Categoría:</strong> {{ $product->category }}</p>
                             <p class="card-text"><strong>Precio:</strong> ${{ number_format($product->price, 2) }}</p>
-                            <a href="{{ route('products.view', $product->id) }}" class="btn btn-primary">Ver</a>
-                            <form action="{{ route('products.destroy', $product->id) }}" method="POST" class="d-inline">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Eliminar</button>
-                            </form>
+                            <td>
+                                <a href="{{ route('products.view', $product->id) }}" class="btn btn-sm btn-info">Ver</a>
+                                <form action="{{ route('products.destroy', $product->id) }}" method="POST" class="d-inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-sm btn-danger" onclick="return confirm('¿Eliminar producto?')">Eliminar</button>
+                                </form>
+                            </td>
                         </div>
                     </div>
                 </div>

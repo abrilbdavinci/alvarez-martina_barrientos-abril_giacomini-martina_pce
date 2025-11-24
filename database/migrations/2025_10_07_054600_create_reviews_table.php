@@ -13,6 +13,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreignId('product_id')->constrained()->onDelete('cascade');
             $table->tinyInteger('rating');
+            $table->string('author')->nullable();
             $table->text('comment');
             $table->timestamps();
         });

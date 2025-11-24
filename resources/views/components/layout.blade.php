@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title ?? 'Kälm - Skincare & Haircare' }}</title>
-    <link rel="icon" type="image/png" href="../public/favicon/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="../public/favicon/favicon.svg" />
-    <link rel="shortcut icon" href="../public/favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="../public/favicon/apple-touch-icon.png" />
-    <link rel="manifest" href="../public/favicon/site.webmanifest" />
+    <link rel="icon" type="image/png" href="{{ asset('favicon/favicon-96x96.png') }}" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="{{ asset('favicon/favicon.svg') }}" />
+    <link rel="shortcut icon" href="{{ asset('favicon/favicon.ico') }}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('favicon/apple-touch-icon.png') }}" />
+    <link rel="manifest" href="{{ asset('favicon/site.webmanifest') }}" />
 
     <!-- Bootstrap 5.3 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -26,7 +26,7 @@
 <body class="d-flex flex-column min-vh-100 bg-light">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm px-5 rounded-bottom-4 py-3">
-            <a href="{{ route('home') }}"><img src="../public/images/logo.svg" alt="Kälm logo dark" style="height: 2vw;"></a>
+            <a href="{{ route('home') }}"><img src="{{ asset('images/logo.svg') }}" alt="Kälm logo dark" style="height: 2vw;"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -62,7 +62,7 @@
                 <p class="mt-3">&copy; {{ date('Y') }} Kälm. All rights reserved.</p>
             </div>
             <div class="text-end d-flex flex-column align-items-end flex-wrap">
-                <img style="height: 2vw;" src="../public/images/logolight.svg" alt="Kälm logo">
+                <img style="height: 2vw;" src="{{ asset('images/logolight.svg') }}" alt="Kälm logo">
                 <p class="mt-3">Escuela Da Vinci - DWM4AP</p>
                 <p>Clientes Web Mobile, Parcial 2. Alvarez, Barrientos, Giacomini</p>
             </div>

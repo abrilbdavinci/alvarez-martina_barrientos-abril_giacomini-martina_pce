@@ -17,7 +17,14 @@ class ProductController extends Controller
     // Formulario para crear producto
     public function create()
     {
-        return view('products.create');
+        $categories = [
+            'Cuidado de la piel',
+            'Cuidado del cabello',
+            'Suplementos',
+            'Herramientas',
+        ];
+
+        return view('products.create', compact('categories'));
     }
 
     // Guardar nuevo producto
@@ -29,7 +36,11 @@ class ProductController extends Controller
             'price' => 'required|numeric',
         ]);
 
-        Product::create($request->all());
+        $request->validate([
+            'category' => 'required|string|max:255',
+        ]);
+
+        Product::create($request->only(['name', 'description', 'price', 'category', 'image']));
 
         return redirect()->route('products.index')->with('feedback.message', 'Producto creado correctamente.');
     }
@@ -51,7 +62,11 @@ class ProductController extends Controller
             'price' => 'required|numeric',
         ]);
 
-        $product->update($request->all());
+        $request->validate([
+            'category' => 'required|string|max:255',
+        ]);
+
+        $product->update($request->only(['name', 'description', 'price', 'category', 'image']));
 
         return redirect()->route('products.index')->with('feedback.message', 'Producto actualizado correctamente.');
     }

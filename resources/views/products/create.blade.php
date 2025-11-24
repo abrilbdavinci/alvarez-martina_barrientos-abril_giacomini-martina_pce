@@ -30,6 +30,16 @@
                 <input type="text" name="price" id="price" class="form-control" value="{{ old('price') }}">
             </div>
 
+            <div class="mb-3">
+                <label for="category" class="form-label">Categoría</label>
+                <select name="category" id="category" class="form-select">
+                    <option value="">-- Seleccioná una categoría --</option>
+                    @foreach($categories as $cat)
+                        <option value="{{ $cat }}" {{ old('category') == $cat ? 'selected' : '' }}>{{ $cat }}</option>
+                    @endforeach
+                </select>
+            </div>
+
             <button type="submit" class="btn btn-primary">Crear Producto</button>
         </form>
     </div>
