@@ -26,7 +26,7 @@
 <body class="d-flex flex-column min-vh-100 bg-light">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm px-5 rounded-bottom-4 py-3">
-            <a href="{{ route('home') }}"><img src="https://files.catbox.moe/8sp5ze.svg" alt="Kälm logo dark" style="height: 2vw;"></a>
+            <a href="{{ route('home') }}"><img src="../public/images/logo.svg" alt="Kälm logo dark" style="height: 2vw;"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -62,7 +62,7 @@
                 <p class="mt-3">&copy; {{ date('Y') }} Kälm. All rights reserved.</p>
             </div>
             <div class="text-end d-flex flex-column align-items-end flex-wrap">
-                <img style="height: 2vw;" src="https://files.catbox.moe/g9rtvz.svg" alt="Kälm logo">
+                <img style="height: 2vw;" src="../public/images/logolight.svg" alt="Kälm logo">
                 <p class="mt-3">Escuela Da Vinci - DWM4AP</p>
                 <p>Clientes Web Mobile, Parcial 2. Alvarez, Barrientos, Giacomini</p>
             </div>

@@ -17,15 +17,6 @@ class PostSeeder extends Seeder
                 'author' => 'Admin',
                 'created_at' => now(),
                 'updated_at' => now()
-            ],
-            [
-                'title' => 'How to Strengthen Your Hair',
-                'content' => 'Learn how to nourish and strengthen your hair from root to tip.',
-                'category' => 'haircare',
-                'image' => 'posts/haircare_guide.jpg',
-                'author' => 'Admin',
-                'created_at' => now(),
-                'updated_at' => now()
             ]
         ]);
     }

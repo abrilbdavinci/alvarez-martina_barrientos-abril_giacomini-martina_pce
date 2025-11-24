@@ -1,7 +1,7 @@
 <x-layout>
     <x-slot:title>Inicio | Kälm</x-slot:title>
 
-    <header style="background-image: url('https://files.catbox.moe/43pskb.png'); background-size:cover; height:30vw;" class="mt-0 m-2 p-9 mb-5 rounded-4 text-light d-flex justify-content-between align-items-center">
+    <header style="background-image: url('../public/images/header.png'); background-size:cover; height:30vw;" class="mt-0 m-2 p-9 mb-5 rounded-4 text-light d-flex justify-content-between align-items-center">
         <div style="width: 34vw;" class="ms-5">
             <h1 style="color: #306067;" class="fw-bold text-5xl mb-3">Descubrí los secretos de tu piel y cabello con Kälm.</h1>
             <a style="border-color: #37A0AF; background-color: #37A0AF;" class="fw-bold me-2 px-4 py-2 rounded-4 text-light w-20 text-center text-decoration-none" ">Ver más</a>
@@ -11,7 +11,7 @@
 
 <div class="container">
     <div class="d-flex my-5">
-        <img class="img-fluid" src="https://files.catbox.moe/y072ew.png" alt="mockup kälm">
+        <img class="img-fluid" src="../public/images/mockup.png" alt="mockup kälm">
         <div class="d-flex flex-column justify-content-center ms-5 pe-5">
             <h2 style="color: #306067;">Tu próxima rutina de autocuidado</h2>
             <p>Con la app de Kälm, diseñá una rutina de skincare que realmente se adapte a vos —a tu piel, a tu ritmo y a tu día a día. Nuestra tecnología inteligente analiza tus necesidades, tipo de piel y hábitos para crear un plan personalizado que evoluciona con vos.</p>
@@ -23,16 +23,16 @@
         <h2 style="color: #306067;" class="text-center">Tu rutina ideal</h2>
         <p class="mb-5 text-center">Realizá nuestros tests para descubrir la rutina de autocuidado que mejor se adapta a vos.</p>
         <div style="color: white;" class="d-flex justify-content-center flex-wrap mb-5">
-            <div style="width: 17vw; height: 25vw; background-image: url('https://files.catbox.moe/8ejton.jpg');" class="text-center shadow-sm rounded-5 p-5 me-5 d-flex flex-column justify-content-center align-items-center">
-                <img style="height: 9vw;" class="mb-5" src="https://files.catbox.moe/zsw18a.svg" alt="skincare">
+            <div style="width: 17vw; height: 25vw; background-image: url('../public/images/fondo3.jpg');" class="text-center shadow-sm rounded-5 p-5 me-5 d-flex flex-column justify-content-center align-items-center">
+                <img style="height: 9vw;" class="mb-5" src="../public/images/icon3.svg" alt="skincare">
                 <p class="fw-bold">Skincare</p>
             </div>
-            <div style="width: 17vw; height: 25vw; background-image: url('https://files.catbox.moe/7v635c.jpg');" class="text-center shadow-sm rounded-5 p-5 me-5 d-flex flex-column justify-content-center align-items-center">
-                <img style="height: 9vw;" class="mb-5" src="https://files.catbox.moe/0p4nkk.svg" alt="haircare">
+            <div style="width: 17vw; height: 25vw; background-image: url('../public/images/fondo2.jpg');" class="text-center shadow-sm rounded-5 p-5 me-5 d-flex flex-column justify-content-center align-items-center">
+                <img style="height: 9vw;" class="mb-5" src="../public/images/icon2.svg" alt="haircare">
                 <p class="fw-bold">Haircare</p>
             </div>
-            <div style="width: 17vw; height: 25vw; background-image: url('https://files.catbox.moe/5spkpv.png');background-size: cover;" class="text-center shadow-sm rounded-5 p-5 me-5 d-flex flex-column justify-content-center align-items-center">
-                <img style="height: 9vw;" class="mb-5" src="https://files.catbox.moe/dhwxv5.svg" alt="prototipo">
+            <div style="width: 17vw; height: 25vw; background-image: url('../public/images/fondo.jpg');background-size: cover;" class="text-center shadow-sm rounded-5 p-5 me-5 d-flex flex-column justify-content-center align-items-center">
+                <img style="height: 9vw;" class="mb-5" src="../public/images/icon.svg" alt="prototipo">
                 <a style="color: white;" class="fw-bold d-inline-block text-decoration-none" href="https://www.figma.com/design/8p4Gj78estjBeiSBqFYJV5/proto?node-id=0-1&t=7gWD9YIaVhpseoar-1">Probá nuestro prototipo</a>
             </div>
         </div>
