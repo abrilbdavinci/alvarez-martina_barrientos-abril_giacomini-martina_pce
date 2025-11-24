@@ -18,16 +18,6 @@ class ReviewSeeder extends Seeder
                 'comment' => 'Amazing product, really improved my skin!',
                 'created_at' => now(),
                 'updated_at' => now()
-            ],
-            [
-                'id' => 2,
-                'user_id' => 1,
-                'rating' => 4,
-                'product_id' => 1,
-                'author' => 'usuario',
-                'comment' => 'Hair feels stronger after using this oil.',
-                'created_at' => now(),
-                'updated_at' => now()
             ]
         ]);
     }

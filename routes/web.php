@@ -13,7 +13,6 @@ Route::get('/about', [AboutController::class, 'about'])->name('about');
 
 // Productos con resource
 Route::resource('products', ProductController::class)->except(['show']);
-// Si quieres mantener 'view' en vez de 'show', puedes definirlo aparte:
 Route::get('/products/{product}', [ProductController::class, 'view'])->name('products.view');
 
 // Posts
@@ -23,6 +22,7 @@ Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
 Route::get('/posts/{id}', [PostController::class, 'view'])->name('posts.view')->whereNumber('id');
 Route::get('/posts/{id}/delete', [PostController::class, 'delete'])->name('posts.delete');
 Route::delete('/posts/{id}', [PostController::class, 'destroy'])->name('posts.destroy');
+Route::put('/posts/{id}/edit', [ReviewController::class, 'update'])->name('posts.update');
 
 // Reviews
 Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');
@@ -31,3 +31,4 @@ Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store
 Route::get('/reviews/{review}', [ReviewController::class, 'view'])->name('reviews.view')->whereNumber('id');
 Route::get('/reviews/{review}/delete', [ReviewController::class, 'delete'])->name('reviews.delete');
 Route::delete('/reviews/{review}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
+Route::put('/reviews/{review}/edit', [ReviewController::class, 'update'])->name('reviews.update');
