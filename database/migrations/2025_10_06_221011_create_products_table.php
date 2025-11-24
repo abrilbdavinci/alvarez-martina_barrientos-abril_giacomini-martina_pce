@@ -8,9 +8,11 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->id(); // auto-incremental
+            $table->id();
             $table->string('name');
             $table->text('description');
+            $table->string('image')->nullable();
+            $table->string('category');
             $table->decimal('price', 10, 2);
             $table->timestamps();
         });

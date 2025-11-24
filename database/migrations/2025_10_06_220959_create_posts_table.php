@@ -11,8 +11,9 @@ return new class extends Migration {
             $table->id();
             $table->string('title');
             $table->text('content');
-            $table->string('author');
             $table->string('category');
+            $table->string('image')->nullable();
+            $table->string('author')->nullable();
             $table->timestamps();
         });
     }
