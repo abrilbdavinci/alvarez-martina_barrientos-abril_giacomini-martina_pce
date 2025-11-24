@@ -41,7 +41,7 @@ class ReviewController extends Controller
         ]);
 
         return redirect()->route('reviews.index')
-            ->with('feedback.message', 'Reseña creada correctamente.');
+            ->with('feedback.message', 'Reseña creada con éxito.');
     }
 
     // Ver review individual (opcional)
@@ -55,6 +55,31 @@ class ReviewController extends Controller
     {
         $review->delete();
         return redirect()->route('reviews.index')
-            ->with('feedback.message', 'Reseña eliminada correctamente.');
+            ->with('feedback.message', 'Reseña eliminada con éxito.');
     }
+
+    // Mostrar formulario de edición
+    public function edit(Review $review)
+    {
+        $products = Product::all();
+        return view('reviews.edit', compact('review', 'products'));
+    }
+
+    // Actualizar review
+    public function update(Request $request, Review $review)
+    {
+        $request->validate([
+            'product_id' => 'required|exists:products,id',
+            'author' => 'required|string|max:100',
+            'rating' => 'required|integer|min:1|max:5',
+            'comment' => 'required|string',
+        ]);
+
+        $review->update($request->only(['product_id', 'author', 'rating', 'comment']));
+
+        return redirect()->route('reviews.index')
+            ->with('feedback.message', 'Reseña actualizada con éxito.');
+    }
+
+
 }

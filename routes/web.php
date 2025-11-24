@@ -22,13 +22,14 @@ Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
 Route::get('/posts/{id}', [PostController::class, 'view'])->name('posts.view')->whereNumber('id');
 Route::get('/posts/{id}/delete', [PostController::class, 'delete'])->name('posts.delete');
 Route::delete('/posts/{id}', [PostController::class, 'destroy'])->name('posts.destroy');
-Route::put('/posts/{id}/edit', [ReviewController::class, 'update'])->name('posts.update');
+Route::put('/posts/edit/{id}', [ReviewController::class, 'update'])->name('posts.update');
 
 // Reviews
 Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');
 Route::get('/reviews/create', [ReviewController::class, 'create'])->name('reviews.create');
 Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');
-Route::get('/reviews/{review}', [ReviewController::class, 'view'])->name('reviews.view')->whereNumber('id');
+Route::get('/reviews/{review}', [ReviewController::class, 'view'])->name('reviews.view')->whereNumber('review');
 Route::get('/reviews/{review}/delete', [ReviewController::class, 'delete'])->name('reviews.delete');
 Route::delete('/reviews/{review}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
-Route::put('/reviews/{review}/edit', [ReviewController::class, 'update'])->name('reviews.update');
+Route::get('/reviews/{review}/edit', [ReviewController::class, 'edit'])->name('reviews.edit');
+Route::put('/reviews/{review}', [ReviewController::class, 'update'])->name('reviews.update');

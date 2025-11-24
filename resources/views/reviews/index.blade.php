@@ -34,8 +34,8 @@
                                 <td>{{ $review->rating }}/5</td>
                                 <td>{{ Str::limit($review->comment, 50) }}</td>
                                 <td>
-                                    <a href="{{ route('reviews.view', $review->id) }}" class="btn btn-sm btn-info">Ver</a>
-                                    <a href="{{ route('reviews.update', $review->id) }}" class="btn btn-sm btn-secondary">Editar</a>
+                                    <a href="{{ route('reviews.view', $review) }}" class="btn btn-sm btn-info">Ver</a>
+                                    <a href="{{ route('reviews.edit', $review) }}" class="btn btn-sm btn-secondary">Editar</a>
                                     <form action="{{ route('reviews.destroy', $review->id) }}" method="POST" class="d-inline">
                                         @csrf
                                         @method('DELETE')
