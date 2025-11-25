@@ -11,7 +11,18 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        $middleware->redirectGuestsTo(function(\Illuminate\Http\Request $request){
+            session()->flash(
+                'feedback.message',
+                'Se requiere Estar Autenticado para acceder a esta pagina'
+            );
+            session()->flash('feedback.type', 'danger');
+            return route('auth.login');
+        });
+
+        $middleware->alias([
+            'require-age' => \App\Http\Middleware\RequireAgeOver18::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

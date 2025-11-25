@@ -8,7 +8,9 @@
 
         <h1 class="mb-3">Posts</h1>
 
+        @auth
         <a href="{{ route('posts.create') }}" class="btn btn-primary mb-3">Crear Post</a>
+        @endauth
 
         <table class="table table-striped">
             <thead>
@@ -29,8 +31,10 @@
                         <td>{{ $post->category }}</td>
                         <td>
                             <a href="{{ route('posts.view', $post) }}" class="btn btn-info btn-sm">Ver</a>
+                            @auth
                             <a href="{{ route('posts.edit', $post) }}" class="btn btn-sm btn-secondary">Editar</a>
                             <a href="{{ route('posts.delete', $post) }}" class="btn btn-danger btn-sm">Eliminar</a>
+                            @endauth
                         </td>
                     </tr>
                 @endforeach

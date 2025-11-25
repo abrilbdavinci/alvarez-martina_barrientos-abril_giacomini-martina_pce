@@ -4,7 +4,9 @@
 
         <h1 class="mb-4">Productos</h1>
 
+        @auth
         <a href="{{ route('products.create') }}" class="btn btn-info text-white mb-3">Nuevo Producto</a>
+        @endauth
 
         <div class="row">
             @foreach($products as $product)
@@ -24,12 +26,14 @@
                             <p class="card-text"><strong>Precio:</strong> ${{ number_format($product->price, 2) }}</p>
                             <div>
                                 <a href="{{ route('products.view', $product) }}" class="btn btn-sm btn-info">Ver</a>
+                                @auth
                                 <a href="{{ route('products.edit', $product) }}" class="btn btn-sm btn-secondary">Editar</a>
                                 <form action="{{ route('products.destroy', $product) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-sm btn-danger" onclick="return confirm('¿Eliminar producto?')">Eliminar</button>
                                 </form>
+                                @endauth
                             </div>
                         </div>
                     </div>
