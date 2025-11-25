@@ -40,12 +40,33 @@
                     <li class="nav-item"><a class="nav-link" href="{{ route('posts.index') }}">Posts</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('products.index') }}">Productos</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('reviews.index') }}">Reseñas</a></li>
+                    @auth
+                            <li class="nav-item">
+                                <form action="{{ url('/cerrar-sesion') }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="nav-link">
+                                        {{ auth()->user()->email }} (Cerrar Sesion)
+                                    </button>
+                                </form>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <x-nav-link route="auth.login">
+                                    Iniciar Sesión
+                                </x-nav-link>
+                            </li>
+                        @endauth
                 </ul>
             </div>
     </nav>
 
     <!-- Contenido principal -->
-    <main class="container-fluid flex-grow-1 py-4">
+    <main class="container-fluid grow py-4">
+        @if (session()->has('feedback.message'))
+                <div class="alert alert-{{ session()->get('feedback.type', 'success') }}">
+                    {!! session()->get('feedback.message') !!}
+                </div>
+            @endif
         {{ $slot }}
     </main>
 
@@ -64,7 +85,7 @@
             <div class="text-end d-flex flex-column align-items-end flex-wrap">
                 <img style="height: 2vw;" src="{{ asset('images/logolight.svg') }}" alt="Kälm logo">
                 <p class="mt-3">Escuela Da Vinci - DWM4AP</p>
-                <p>Clientes Web Mobile, Parcial 2. Alvarez, Barrientos, Giacomini</p>
+                <p>Portales y Comercio Electrónico, Parcial 2. Alvarez, Barrientos, Giacomini</p>
             </div>
         </div>
     </footer>

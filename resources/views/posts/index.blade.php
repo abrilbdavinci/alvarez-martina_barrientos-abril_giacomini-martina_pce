@@ -28,8 +28,9 @@
                         <td>{{ $post->author }}</td>
                         <td>{{ $post->category }}</td>
                         <td>
-                            <a href="{{ route('posts.view', ['id' => $post->id]) }}" class="btn btn-info btn-sm">Ver</a>
-                            <a href="{{ route('posts.delete', ['id' => $post->id]) }}" class="btn btn-danger btn-sm">Eliminar</a>
+                            <a href="{{ route('posts.view', $post) }}" class="btn btn-info btn-sm">Ver</a>
+                            <a href="{{ route('posts.edit', $post) }}" class="btn btn-sm btn-secondary">Editar</a>
+                            <a href="{{ route('posts.delete', $post) }}" class="btn btn-danger btn-sm">Eliminar</a>
                         </td>
                     </tr>
                 @endforeach

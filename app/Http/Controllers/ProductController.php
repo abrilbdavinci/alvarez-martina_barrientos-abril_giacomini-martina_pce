@@ -34,13 +34,16 @@ class ProductController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'required|string',
             'price' => 'required|numeric',
-        ]);
-
-        $request->validate([
             'category' => 'required|string|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        Product::create($request->only(['name', 'description', 'price', 'category', 'image']));
+        $data = $request->only(['name', 'description', 'price', 'category']);
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('products', 'public');
+            $data['image'] = $imagePath;
+        }
+        Product::create($data);
 
         return redirect()->route('products.index')->with('feedback.message', 'Producto creado correctamente.');
     }
@@ -51,7 +54,18 @@ class ProductController extends Controller
         return view('products.view', compact('product'));
     }
 
+    // Mostrar formulario de edición
+    public function edit(Product $product)
+    {
+        $categories = [
+            'Cuidado de la piel',
+            'Cuidado del cabello',
+            'Suplementos',
+            'Herramientas',
+        ];
 
+        return view('products.edit', compact('product', 'categories'));
+    }
 
     // Actualizar producto
     public function update(Request $request, Product $product)
@@ -60,13 +74,19 @@ class ProductController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'required|string',
             'price' => 'required|numeric',
-        ]);
-
-        $request->validate([
             'category' => 'required|string|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $product->update($request->only(['name', 'description', 'price', 'category', 'image']));
+        $data = $request->only(['name', 'description', 'price', 'category']);
+        if ($request->hasFile('image')) {
+            if ($product->image && \Storage::disk('public')->exists($product->image)) {
+                \Storage::disk('public')->delete($product->image);
+            }
+            $imagePath = $request->file('image')->store('products', 'public');
+            $data['image'] = $imagePath;
+        }
+        $product->update($data);
 
         return redirect()->route('products.index')->with('feedback.message', 'Producto actualizado correctamente.');
     }

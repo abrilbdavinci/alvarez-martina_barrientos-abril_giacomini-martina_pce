@@ -6,10 +6,16 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\AuthController;
 
 // Home y About
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/about', [AboutController::class, 'about'])->name('about');
+
+// Auth (login/logout)
+Route::get('/login', [AuthController::class, 'login'])->name('auth.login');
+Route::post('/login', [AuthController::class, 'authenticate'])->name('auth.authenticate');
+Route::post('/cerrar-sesion', [AuthController::class, 'logout'])->name('auth.logout');
 
 // Productos con resource
 Route::resource('products', ProductController::class)->except(['show']);
@@ -19,10 +25,11 @@ Route::get('/products/{product}', [ProductController::class, 'view'])->name('pro
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
 Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
-Route::get('/posts/{id}', [PostController::class, 'view'])->name('posts.view')->whereNumber('id');
-Route::get('/posts/{id}/delete', [PostController::class, 'delete'])->name('posts.delete');
-Route::delete('/posts/{id}', [PostController::class, 'destroy'])->name('posts.destroy');
-Route::put('/posts/edit/{id}', [ReviewController::class, 'update'])->name('posts.update');
+Route::get('/posts/{post}', [PostController::class, 'view'])->name('posts.view')->whereNumber('post');
+Route::get('/posts/{post}/delete', [PostController::class, 'delete'])->name('posts.delete');
+Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
+Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
+Route::put('/posts/{post}', [PostController::class, 'update'])->name('posts.update');
 
 // Reviews
 Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');

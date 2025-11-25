@@ -15,7 +15,7 @@ class ReviewSeeder extends Seeder
                 'rating' => 5,
                 'product_id' => 1,
                 'author' => 'usuario',
-                'comment' => 'Amazing product, really improved my skin!',
+                'comment' => 'Muy bueno producto, me encantó.',
                 'created_at' => now(),
                 'updated_at' => now()
             ]
