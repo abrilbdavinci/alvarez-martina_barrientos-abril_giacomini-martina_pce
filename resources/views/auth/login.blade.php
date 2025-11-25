@@ -5,6 +5,10 @@
 
         <h1 class="mb-3">Ingresar a tu cuenta</h1>
 
+        @if(session('feedback.message'))
+            <div class="alert alert-info">{{ session('feedback.message') }}</div>
+        @endif
+
         <form action="{{ route('auth.authenticate') }}" method="POST">
             @csrf
             <div class="mb-3">

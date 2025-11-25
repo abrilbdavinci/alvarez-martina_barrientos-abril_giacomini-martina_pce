@@ -8,16 +8,17 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
-{
-    public function run(): void
     {
-        DB::table('users')->insert([
-            'id' => 1,
-            'name' => 'admin',
-            'email' => 'test@eooo.com',
-            'password' => Hash::make('asdasd'),
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
+        public function run(): void
+        {
+            DB::table('users')->insert([
+                [
+                    'name' => 'Test User',
+                    'email' => 'test@example.com',
+                    'password' => Hash::make('secret'),
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ],
+            ]);
+        }
     }
-}
