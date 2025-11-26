@@ -39,54 +39,52 @@
     </div>
 
     <!-- Subscripciones -->
-    <div class="container my-5">
-        <h2 class="text-center mb-4">Subscripciones</h2>
-        <div class="card shadow-lg border-0 rounded-4 overflow-hidden">
-            <div class="row g-0">
-                <!-- PLAN FREE -->
-                <div class="col-md-4 p-4 border-end d-flex flex-column">
-                    <h3 class="fw-semibold text-center">Kälm Free</h3>
-                    <p class="text-muted mb-2 text-center">Ideal para quienes recién están empezando a adentrarse en el mundo del haircare y el skincare.</p>
-                    <p style="color:#306067;" class="fs-3 fw-bold mb-4 text-center">Gratis</p>
-                    <ul class="text-secondary mb-4">
-                        <li>Diagnóstico básico del tipo de piel</li>
-                        <li>Recomendaciones diarias de rutina</li>
-                        <li>Registro de productos usados</li>
-                        <li>Consejos y artículos sobre skincare</li>
+    <div class="row g-5 justify-content-center align-items-stretch">
+        <h2 style="color: #306067;" class="text-center mt-5">Planes</h2>
+            <!-- PLAN FREE -->
+            <div class="col-md-5 col-lg-4 order-2 order-md-1">
+                <div class="card h-100 shadow-sm rounded-4 p-4 d-flex flex-column text-center bg-white border border-secondary">
+                    <h3 class="fw-bold mb-3" style="color: #2F5C64; font-family: 'Georgia', serif;">Kälm Free</h3>
+                    <p class="text-muted small mb-3 flex-grow-0">Ideal para quienes recién están empezando.</p>
+
+                    <p class="fs-2 fw-bold mb-3" style="color: #4CA9B6;">GRATIS</p>
+
+                    <p class="fw-bold text-secondary mb-2 small">¿Qué incluye?</p>
+                    <ul class="list-unstyled text-start text-secondary small mb-4 flex-grow-1 px-3">
+                        <li class="mb-2"><span class="fw-bold me-2" style="color: #4CA9B6;">✓</span> Diagnóstico básico de piel y cabello</li>
+                        <li class="mb-2"><span class="fw-bold me-2" style="color: #4CA9B6;">✓</span> Recomendaciones de rutina</li>
+                        <li class="mb-2"><span class="fw-bold me-2" style="color: #4CA9B6;">✓</span> Consejos y artículos sobre self-care</li>
+                        <li class="mb-2"><span class="fw-bold me-2" style="color: #4CA9B6;">✓</span> Hasta 2 rutinas personalizables</li>
                     </ul>
-                    <button style="background-color:#37A0AF;margin-top: 2.5vw;" class="btn text-white rounded-pill px-4 text-center">Empezar gratis</button>
-                </div>
-                <!-- PLAN PLUS -->
-                <div class="col-md-4 p-4 border-end bg-light d-flex flex-column">
-                    <h3 class="fw-semibold text-center">Kälm Plus</h3>
-                    <p class="text-muted mb-2 text-center">Ideal para quienes ya conocen su piel y buscan subir de nivel, Kälm Plus ofrece una experiencia aún más personalizada y sin anuncios. </p>
-                    <p style="color:#306067;" class="fs-3 fw-bold mb-4 text-center">ARS $7,000 / mes</p>
-                    <ul class="text-secondary mb-4">
-                        <li>Análisis avanzado con IA y escaneo facial</li>
-                        <li>Rutinas personalizadas según clima y hábitos</li>
-                        <li>Recordatorios inteligentes</li>
-                        <li>Estadísticas del progreso con fotos</li>
-                        <li>Acceso a comunidad y foros privados</li>
-                    </ul>
-                    <button style="background-color:#37A0AF;" class="btn text-white rounded-pill px-4 text-center">Ver más</button>
-                </div>
-                <!-- PLAN PRO -->
-                <div class="col-md-4 p-4 d-flex flex-column" style="background-color: #CCE2E5;">
-                    <h3 class="fw-semibold text-center">Kälm Pro</h3>
-                    <p class="text-muted mb-2 text-center">Ideal para expertos en skincare y haircare, tanto profesionales como entusiastas del autocuidado.</p>
-                    <p style="color:#306067;" class="fs-3 fw-bold mb-4 text-center">ARS $20,000 / mes</p>
-                    <ul class="text-secondary mb-4">
-                        <li>Asesoramiento con expertos certificados</li>
-                        <li>Recomendaciones según tu presupuesto</li>
-                        <li>Rutinas adaptadas a tratamientos dermatológicos</li>
-                        <li>Reportes mensuales con evolución</li>
-                        <li>Acceso anticipado a nuevas funciones</li>
-                    </ul>
-                    <button style="background-color:#37A0AF;" class="btn text-white rounded-pill px-4 text-center">Ver más</button>
+
+                    <button class="btn rounded-pill px-4 fw-bold w-100 py-2 mt-auto" style="background-color: #DCECEC; color: #2F5C64;">Empezar gratis</button>
                 </div>
             </div>
+
+            <!-- PLAN PREMIUM -->
+            <div class="col-md-5 col-lg-4 order-1 order-md-2">
+                <!-- Wrapper con borde grueso color cyan para simular la imagen -->
+                <div class="card h-100 border-0 shadow rounded-4 p-2 d-flex flex-column text-center" style="background-color: #9CD5DB;">
+                    <div class="card-body rounded-4 p-4 d-flex flex-column h-100" style="background-color: #DDF3F5;">
+                        <h3 class="fw-bold mb-3" style="color: #2F5C64; font-family: 'Georgia', serif;">Kälm Premium</h3>
+                        <p class="text-muted small mb-3 flex-grow-0">Ideal para quienes ya conocen y quieren subir de nivel, con experiencia 100% personalizada.</p>
+
+                        <p class="fs-2 fw-bold mb-3" style="color: #4CA9B6;">ARS 10.000<span class="fs-6 text-muted fw-normal">/mes</span></p>
+
+                        <p class="fw-bold text-secondary mb-2 small">¿Qué incluye?</p>
+                        <ul class="list-unstyled text-start text-secondary small mb-4 flex-grow-1 px-3">
+                            <li class="mb-2"><span class="fw-bold me-2" style="color: #4CA9B6;">✓</span> <strong>Todo lo incluido en Kälm Free</strong></li>
+                            <li class="mb-2"><span class="fw-bold me-2" style="color: #4CA9B6;">✓</span> Diagnóstico avanzado de piel y cabello</li>
+                            <li class="mb-2"><span class="fw-bold me-2" style="color: #4CA9B6;">✓</span> Rutinas personalizables ilimitadas</li>
+                            <li class="mb-2"><span class="fw-bold me-2" style="color: #4CA9B6;">✓</span> Self-pack (caja con artículos relacionados de Kalm) de bienvenida con posibilidad mensual</li>
+                        </ul>
+
+                        <button class="btn rounded-pill px-4 fw-bold w-100 py-2 mt-auto text-white" style="background-color: #2F5C64;">Ver más</button>
+                    </div>
+                </div>
+            </div>
+
         </div>
-    </div>
 
     <!-- Preguntas Frecuentes -->
     <h2 style="color: #306067;" class="text-center my-5">Preguntas Frecuentes</h2>
@@ -94,7 +92,7 @@
         <div class="accordion-item">
             <h2 class="accordion-header">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                    ¿Cómo sabe la app qué tipo de piel tengo?
+                    ¿Cómo sabe la app qué tipo de piel / cabello tengo?
                 </button>
             </h2>
             <div id="faq1" class="accordion-collapse collapse">
@@ -132,49 +130,49 @@
     </div>
 
     <!-- Influencers Destacados -->
-    <h2 style="color: #306067;" class="text-center my-5">Nuestra comunidad</h2>
+    <h2 style="color: #306067;" class="text-center my-5">Nuestros embajadores</h2>
     <div class="row">
-        @php
-            $influencers = [
-                [
-                    'name' => 'Influencer',
-                    'description' => 'Especialista en skincare natural y cuidado del cabello.',
-                    'image' => 'https://example.com/sofia.jpg',
-                    'instagram' => 'https://instagram.com/sofia.belle'
-                ],
-                [
-                    'name' => 'Influencer',
-                    'description' => 'Consejos prácticos para cabello masculino y estilo de vida saludable.',
-                    'image' => 'https://example.com/lucas.jpg',
-                    'instagram' => 'https://instagram.com/lucas.haircare'
-                ],
-                [
-                    'name' => 'Influencer',
-                    'description' => 'Tips diarios de belleza y cuidado personal con enfoque natural.',
-                    'image' => 'https://example.com/ana.jpg',
-                    'instagram' => 'https://instagram.com/ana.glow'
-                ],
-            ];
-        @endphp
+    @php
+        $influencers = [
+            [
+                'name' => 'Dra. Daniela Pascali',
+                'description' => 'Dermatóloga. Reseñas honestas de productos, rutinas de skincare y salud de la piel.',
+                'image' => 'https://drapascali.com/wp-content/uploads/2022/09/danimobile.webp',
+                'instagram' => 'https://www.instagram.com/drapascali/'
+            ],
+            [
+                'name' => 'Dr. Simón Scarano',
+                'description' => 'Dermatólogo. Educación sobre cuidado de la piel y cabello desde una perspectiva científica y accesible.',
+                'image' => 'https://www.agencianova.com/data/fotos2/bbx_132574307_3_SimonScarano.jpeg',
+                'instagram' => 'https://www.instagram.com/simon.scarano/?hl=es'
+            ],
+            [
+                'name' => 'Dadatina',
+                'description' => 'Cosmetóloga y referente de skincare. Tips para rutinas accesibles y reseñas de productos.',
+                'image' => 'https://www.viapais.com.ar/resizer/v2/4KOEN5LGPRGRVNL3XAVF7PYBRM.jpg?quality=75&smart=true&auth=44dc568e1ddd3910f55e3d23215b019c99deac7803c80f17a7f54e159a38da31&width=980&height=640',
+                'instagram' => 'https://www.instagram.com/soydadatina/?hl=es-la'
+            ],
+        ];
+    @endphp
 
-        @foreach($influencers as $influencer)
-            <div class="col-md-4 mb-4">
-                <div class="card shadow-sm h-100">
-                    <a href="{{ $influencer['instagram'] }}" target="_blank">
-                        <img src="{{ $influencer['image'] }}" class="card-img-top" alt="Foto de {{ $influencer['name'] }}">
+    @foreach($influencers as $influencer)
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100">
+                <a href="{{ $influencer['instagram'] }}" target="_blank">
+                    <img src="{{ $influencer['image'] }}" class="card-img-top" alt="Foto de {{ $influencer['name'] }}" style="object-fit: cover; height: 500px;">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">{{ $influencer['name'] }}</h5>
+                    <p class="card-text">{{ $influencer['description'] }}</p>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="{{ $influencer['instagram'] }}" target="_blank" class="btn btn-teal">
+                        <i class="fa-brands fa-instagram"></i> Ver Instagram
                     </a>
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $influencer['name'] }}</h5>
-                        <p class="card-text">{{ $influencer['description'] }}</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="{{ $influencer['instagram'] }}" target="_blank" class="btn btn-primary">
-                            <i class="fa-brands fa-instagram"></i> Ver Instagram
-                        </a>
-                    </div>
                 </div>
             </div>
-        @endforeach
-    </div>
+        </div>
+    @endforeach
+</div>
 </div>
 </x-layout>

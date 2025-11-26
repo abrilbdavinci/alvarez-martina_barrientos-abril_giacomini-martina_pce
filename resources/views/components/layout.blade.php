@@ -23,50 +23,66 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
 </head>
 
+
 <body class="d-flex flex-column min-vh-100 bg-light">
+
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm px-5 rounded-bottom-4 py-3">
-            <a href="{{ route('home') }}"><img src="{{ asset('images/logo.svg') }}" alt="Kälm logo dark" style="height: 2vw;"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <a href="{{ route('home') }}">
+            <img src="{{ asset('images/logo.svg') }}" alt="Kälm logo dark" style="height: 2vw;">
+        </a>
 
-            <!-- Aquí movemos todo a la derecha -->
-            <div class="collapse navbar-collapse ms-auto justify-content-end" id="navbarNav">
-                <ul class="navbar-nav fw-semibold d-flex align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('about') }}">Quiénes somos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('posts.index') }}">Posts</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('products.index') }}">Productos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('reviews.index') }}">Reseñas</a></li>
-                    @auth
-                            <li class="nav-item">
-                                <form action="{{ url('/cerrar-sesion') }}" method="POST">
-                                    @csrf
-                                    <button type="submit" class="nav-link">
-                                        {{ auth()->user()->email }} (Cerrar Sesion)
-                                    </button>
-                                </form>
-                            </li>
-                        @else
-                            <li class="nav-item">
-                                <x-nav-link route="auth.login">
-                                    Iniciar Sesión
-                                </x-nav-link>
-                            </li>
-                        @endauth
-                </ul>
-            </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse ms-auto justify-content-end" id="navbarNav">
+            <ul class="navbar-nav fw-semibold d-flex align-items-center">
+
+                <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('about') }}">Quiénes somos</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('posts.index') }}">Posts</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('products.index') }}">Productos</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('reviews.index') }}">Reseñas</a></li>
+
+                {{-- ===========================
+                     BOTONES DE AUTH
+                 ============================ --}}
+                @auth
+                    <li class="nav-item ms-3">
+                        <form action="{{ url('/cerrar-sesion') }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-danger btn-sm px-3">
+                                Cerrar sesión
+                            </button>
+                        </form>
+                    </li>
+                @else
+                    <li class="nav-item ms-3">
+                        <a href="{{ route('auth.login') }}" class="btn btn-outline-primary btn-sm px-3">
+                            Iniciar sesión
+                        </a>
+                    </li>
+
+                    <li class="nav-item ms-2">
+                        <a href="{{ route('auth.register') }}" class="btn btn-primary btn-sm px-3">
+                            Registrarse
+                        </a>
+                    </li>
+                @endauth
+
+            </ul>
+        </div>
     </nav>
 
     <!-- Contenido principal -->
     <main class="container-fluid grow py-4">
         @if (session()->has('feedback.message'))
-                <div class="alert alert-{{ session()->get('feedback.type', 'success') }}">
-                    {!! session()->get('feedback.message') !!}
-                </div>
-            @endif
+            <div class="alert alert-{{ session()->get('feedback.type', 'success') }}">
+                {!! session()->get('feedback.message') !!}
+            </div>
+        @endif
         {{ $slot }}
     </main>
 

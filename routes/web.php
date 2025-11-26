@@ -13,9 +13,15 @@ Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/about', [AboutController::class, 'about'])->name('about');
 
 // Auth (login/logout)
+
 Route::get('/login', [AuthController::class, 'login'])->name('auth.login');
 Route::post('/login', [AuthController::class, 'authenticate'])->name('auth.authenticate');
 Route::post('/cerrar-sesion', [AuthController::class, 'logout'])->name('auth.logout');
+
+Route::get('/register', [AuthController::class, 'register'])->name('auth.register');
+Route::post('/register', [AuthController::class, 'store'])->name('auth.register.store');
+
+
 
 // Productos
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
