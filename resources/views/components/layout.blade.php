@@ -45,9 +45,13 @@
                 <li class="nav-item"><a class="nav-link" href="{{ route('posts.index') }}">Posts</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('products.index') }}">Productos</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('reviews.index') }}">Reseñas</a></li>
+                @auth
+                    <li class="nav-item"><a class="nav-link" href="{{ route('users.index') }}">Usuarios</a></li>
+                @endauth
+
 
                 {{-- ===========================
-                     BOTONES DE AUTH
+                    BOTONES DE AUTH
                  ============================ --}}
                 @auth
                     <li class="nav-item ms-3">
