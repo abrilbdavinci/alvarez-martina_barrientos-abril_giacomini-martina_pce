@@ -35,6 +35,14 @@ class UserSeeder extends Seeder
                     'password' => Hash::make('parcial2'),
                     'created_at' => now(),
                     'updated_at' => now(),
+                ],
+                [
+                    'name' => 'humilde usuario',
+                    'role' => 'user',
+                    'email' => 'usu@ario.com',
+                    'password' => Hash::make('nosoyadmin'),
+                    'created_at' => now(),
+                    'updated_at' => now(),
                 ]
             ]);
         }
