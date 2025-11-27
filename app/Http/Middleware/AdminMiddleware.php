@@ -16,7 +16,7 @@ class AdminMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         if (auth()->check() && auth()->user()->role !== 'admin') {
-            return redirect()->route('home')->with('error', 'No tienes permiso para acceder a esta página.');
+            return redirect()->route('home')->with('feedback.message', 'No tienes permiso para acceder a esta página.');
         }
         return $next($request);
     }

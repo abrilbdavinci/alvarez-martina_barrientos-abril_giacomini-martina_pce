@@ -45,14 +45,13 @@
                 <li class="nav-item"><a class="nav-link" href="{{ route('posts.index') }}">Posts</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('products.index') }}">Productos</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('reviews.index') }}">Reseñas</a></li>
-                @auth
+                @if(auth()->check() && auth()->user()->role === 'admin')
                     <li class="nav-item"><a class="nav-link" href="{{ route('users.index') }}">Usuarios</a></li>
-                @endauth
-
+                @endif
 
                 {{-- ===========================
                     BOTONES DE AUTH
-                 ============================ --}}
+                ============================ --}}
                 @auth
                     <li class="nav-item ms-3">
                         <form action="{{ url('/cerrar-sesion') }}" method="POST">
