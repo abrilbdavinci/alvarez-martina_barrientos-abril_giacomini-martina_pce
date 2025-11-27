@@ -26,14 +26,14 @@
                             <p class="card-text"><strong>Precio:</strong> ${{ number_format($product->price, 2) }}</p>
                             <div>
                                 <a href="{{ route('products.view', $product) }}" class="btn btn-sm btn-info">Ver</a>
-                                @auth
+                                @if(auth()->check() && auth()->user()->role === 'admin')
                                 <a href="{{ route('products.edit', $product) }}" class="btn btn-sm btn-secondary">Editar</a>
                                 <form action="{{ route('products.destroy', $product) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-sm btn-danger" onclick="return confirm('¿Eliminar producto?')">Eliminar</button>
                                 </form>
-                                @endauth
+                                @endif
                             </div>
                         </div>
                     </div>

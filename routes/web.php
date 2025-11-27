@@ -26,7 +26,7 @@ Route::post('/register', [AuthController::class, 'store'])->name('auth.register.
 
 // Productos
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
-Route::get('/products/create', [ProductController::class, 'create'])->middleware(\App\Http\Middleware\AdminMiddleware::class)->name('products.create');
+Route::get('/products/create', [ProductController::class, 'create'])->middleware(\App\Http\Middleware\AdminMiddleware::class)->middleware('auth')->name('products.create');
 Route::post('/products', [ProductController::class, 'store'])->name('products.store')->middleware(\App\Http\Middleware\AdminMiddleware::class);
 Route::get('/products/{product}', [ProductController::class, 'view'])->name('products.view')->whereNumber('product');
 Route::get('/products/{product}/delete', [ProductController::class, 'delete'])->name('products.delete')->middleware(\App\Http\Middleware\AdminMiddleware::class)->middleware('auth');
@@ -46,8 +46,8 @@ Route::put('/posts/{post}', [PostController::class, 'update'])->name('posts.upda
 
 // Reviews
 Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');
-Route::get('/reviews/create', [ReviewController::class, 'create'])->middleware(\App\Http\Middleware\AdminMiddleware::class)->name('reviews.create');
-Route::post('/reviews', [ReviewController::class, 'store'])->middleware(\App\Http\Middleware\AdminMiddleware::class)->name('reviews.store');
+Route::get('/reviews/create', [ReviewController::class, 'create'])->middleware('auth')->name('reviews.create');
+Route::post('/reviews', [ReviewController::class, 'store'])->middleware('auth')->name('reviews.store');
 Route::get('/reviews/{review}', [ReviewController::class, 'view'])->name('reviews.view')->whereNumber('review');
 Route::get('/reviews/{review}/delete', [ReviewController::class, 'delete'])->middleware(\App\Http\Middleware\AdminMiddleware::class)->name('reviews.delete');
 Route::delete('/reviews/{review}', [ReviewController::class, 'destroy'])->middleware(\App\Http\Middleware\AdminMiddleware::class)->name('reviews.destroy');

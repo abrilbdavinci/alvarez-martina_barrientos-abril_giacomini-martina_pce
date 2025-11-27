@@ -31,10 +31,10 @@
                         <td>{{ $post->category }}</td>
                         <td>
                             <a href="{{ route('posts.view', $post) }}" class="btn btn-info btn-sm">Ver</a>
-                            @auth
+                            @if(auth()->check() && auth()->user()->role === 'admin')
                             <a href="{{ route('posts.edit', $post) }}" class="btn btn-sm btn-secondary">Editar</a>
                             <a href="{{ route('posts.delete', $post) }}" class="btn btn-danger btn-sm">Eliminar</a>
-                            @endauth
+                            @endif
                         </td>
                     </tr>
                 @endforeach
