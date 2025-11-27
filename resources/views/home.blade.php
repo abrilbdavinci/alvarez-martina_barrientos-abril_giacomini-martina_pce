@@ -45,12 +45,12 @@
             <div class="col-md-5 col-lg-4 order-2 order-md-1">
                 <div class="card h-100 shadow-sm rounded-4 p-4 d-flex flex-column text-center bg-white border border-secondary">
                     <h3 class="fw-bold mb-3" style="color: #2F5C64; font-family: 'Georgia', serif;">Kälm Free</h3>
-                    <p class="text-muted small mb-3 flex-grow-0">Ideal para quienes recién están empezando.</p>
+                    <p class="text-muted small mb-3 grow-0">Ideal para quienes recién están empezando.</p>
 
                     <p class="fs-2 fw-bold mb-3" style="color: #4CA9B6;">GRATIS</p>
 
                     <p class="fw-bold text-secondary mb-2 small">¿Qué incluye?</p>
-                    <ul class="list-unstyled text-start text-secondary small mb-4 flex-grow-1 px-3">
+                    <ul class="list-unstyled text-start text-secondary small mb-4 grow px-3">
                         <li class="mb-2"><span class="fw-bold me-2" style="color: #4CA9B6;">✓</span> Diagnóstico básico de piel y cabello</li>
                         <li class="mb-2"><span class="fw-bold me-2" style="color: #4CA9B6;">✓</span> Recomendaciones de rutina</li>
                         <li class="mb-2"><span class="fw-bold me-2" style="color: #4CA9B6;">✓</span> Consejos y artículos sobre self-care</li>
@@ -67,12 +67,12 @@
                 <div class="card h-100 border-0 shadow rounded-4 p-2 d-flex flex-column text-center" style="background-color: #9CD5DB;">
                     <div class="card-body rounded-4 p-4 d-flex flex-column h-100" style="background-color: #DDF3F5;">
                         <h3 class="fw-bold mb-3" style="color: #2F5C64; font-family: 'Georgia', serif;">Kälm Premium</h3>
-                        <p class="text-muted small mb-3 flex-grow-0">Ideal para quienes ya conocen y quieren subir de nivel, con experiencia 100% personalizada.</p>
+                        <p class="text-muted small mb-3 grow-0">Ideal para quienes ya conocen y quieren subir de nivel, con experiencia 100% personalizada.</p>
 
                         <p class="fs-2 fw-bold mb-3" style="color: #4CA9B6;">ARS 10.000<span class="fs-6 text-muted fw-normal">/mes</span></p>
 
                         <p class="fw-bold text-secondary mb-2 small">¿Qué incluye?</p>
-                        <ul class="list-unstyled text-start text-secondary small mb-4 flex-grow-1 px-3">
+                        <ul class="list-unstyled text-start text-secondary small mb-4 grow px-3">
                             <li class="mb-2"><span class="fw-bold me-2" style="color: #4CA9B6;">✓</span> <strong>Todo lo incluido en Kälm Free</strong></li>
                             <li class="mb-2"><span class="fw-bold me-2" style="color: #4CA9B6;">✓</span> Diagnóstico avanzado de piel y cabello</li>
                             <li class="mb-2"><span class="fw-bold me-2" style="color: #4CA9B6;">✓</span> Rutinas personalizables ilimitadas</li>
