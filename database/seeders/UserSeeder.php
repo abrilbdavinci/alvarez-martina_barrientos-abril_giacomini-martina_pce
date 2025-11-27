@@ -13,12 +13,29 @@ class UserSeeder extends Seeder
         {
             DB::table('users')->insert([
                 [
-                    'name' => 'Test User',
-                    'email' => 'test@example.com',
-                    'password' => Hash::make('secret'),
+                    'name' => 'marG',
+                    'role' => 'admin',
+                    'email' => 'marG@kalm.com',
+                    'password' => Hash::make('parcial2'),
                     'created_at' => now(),
                     'updated_at' => now(),
                 ],
+                [
+                    'name' => 'abru',
+                    'role' => 'admin',
+                    'email' => 'abru@kalm.com',
+                    'password' => Hash::make('parcial2'),
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ],
+                [
+                    'name' => 'marA',
+                    'role' => 'admin',
+                    'email' => 'marA@kalm.com',
+                    'password' => Hash::make('parcial2'),
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ]
             ]);
         }
     }

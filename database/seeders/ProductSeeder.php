@@ -10,7 +10,6 @@ class ProductSeeder extends Seeder
     {
         DB::table('products')->insert([
             [
-            "id" => 1,
             "name" => "Aqua Mat Gel",
             "description" => "Gel limpiador matificante para pieles oleosas. Limpia, Purifica y Seborregula",
             "image" => null,
