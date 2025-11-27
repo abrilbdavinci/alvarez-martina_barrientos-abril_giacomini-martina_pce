@@ -28,16 +28,16 @@ class ReviewController extends Controller
     {
         $request->validate([
             'product_id' => 'required|exists:products,id',
-            'author' => 'required|string|max:100',
             'rating' => 'required|integer|min:1|max:5',
             'comment' => 'required|string',
         ]);
 
         Review::create([
             'product_id' => $request->product_id,
-            'author' => $request->author,
+            'author' => auth()->user()->name,
             'rating' => $request->rating,
             'comment' => $request->comment,
+            'user_id' => auth()->id()
         ]);
 
         return redirect()->route('reviews.index')

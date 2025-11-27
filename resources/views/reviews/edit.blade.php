@@ -30,11 +30,6 @@
             </div>
 
             <div class="mb-3">
-                <label for="author" class="form-label">Autor</label>
-                <input type="text" name="author" id="author" class="form-control" value="{{ old('author', $review->author) }}" required>
-            </div>
-
-            <div class="mb-3">
                 <label for="rating" class="form-label">Rating</label>
                 <input type="number" name="rating" id="rating" class="form-control" min="1" max="5" value="{{ old('rating', $review->rating) }}" required>
             </div>
