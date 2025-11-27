@@ -79,4 +79,17 @@ class AuthController extends Controller
             ->route('auth.login')
             ->with('feedback.message', 'Sesion Cerrada con exito ¡Te esperamos pronto!');
     }
+
+    public function index()
+    {
+        $users = User::all();
+        return view('users.index', ['users' => $users]);
+    }
+
+    public function view($id)
+    {
+        $user = User::findOrFail($id); // Usa la clave primaria 'id'
+
+        return view('users.view', compact('user'));
+    }
 }

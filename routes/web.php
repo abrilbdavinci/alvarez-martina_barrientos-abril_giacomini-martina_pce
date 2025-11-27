@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\AuthController;
@@ -53,7 +54,11 @@ Route::delete('/reviews/{review}', [ReviewController::class, 'destroy'])->name('
 Route::get('/reviews/{review}/edit', [ReviewController::class, 'edit'])->name('reviews.edit');
 Route::put('/reviews/{review}', [ReviewController::class, 'update'])->name('reviews.update');
 
-//auth
+// Auth
 Route::get('iniciar-sesion',[\App\Http\Controllers\AuthController::class, 'login'])->name('auth.login');
 Route::post('iniciar-sesion', [\App\Http\Controllers\AuthController::class, 'authenticate'])->name('auth.authenticate');
 Route::post('cerrar-sesion', [\App\Http\Controllers\AuthController::class, 'logout'])->name('auth.logout');
+
+// Users
+Route::get('/users', [AuthController::class, 'index'])->name('users.index');
+Route::get('/users/{user}', [AuthController::class, 'view'])->name('users.view')->whereNumber('user');
