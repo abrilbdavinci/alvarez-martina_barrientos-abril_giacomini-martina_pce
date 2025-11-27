@@ -21,9 +21,9 @@ class UserSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'name' => 'abru',
+                    'name' => 'abruB',
                     'role' => 'admin',
-                    'email' => 'abru@kalm.com',
+                    'email' => 'abruB@kalm.com',
                     'password' => Hash::make('parcial2'),
                     'created_at' => now(),
                     'updated_at' => now(),
