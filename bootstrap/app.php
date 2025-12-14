@@ -21,7 +21,7 @@ return Application::configure(basePath: dirname(__DIR__))
         });
 
         $middleware->alias([
-            'require-age' => \App\Http\Middleware\RequireAgeOver18::class,
+            'require-age' => \App\Http\Middleware\AdminMiddleware::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
