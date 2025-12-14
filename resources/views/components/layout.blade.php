@@ -10,13 +10,6 @@
     <link rel="shortcut icon" href="{{ asset('favicon/favicon.ico') }}" />
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('favicon/apple-touch-icon.png') }}" />
     <link rel="manifest" href="{{ asset('favicon/site.webmanifest') }}" />
-
-    <!-- Bootstrap 5.3 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -103,13 +96,8 @@
             </div>
             <div class="text-end d-flex flex-column align-items-end flex-wrap">
                 <img style="height: 2vw;" src="{{ asset('images/logolight.svg') }}" alt="Kälm logo">
-                <p class="mt-3">Escuela Da Vinci - DWM4AP</p>
-                <p>Portales y Comercio Electrónico, Parcial 2. Alvarez, Barrientos, Giacomini</p>
             </div>
         </div>
     </footer>
-
-    <!-- Bootstrap JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
