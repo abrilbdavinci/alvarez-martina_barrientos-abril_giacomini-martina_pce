@@ -46,6 +46,12 @@
                     BOTONES DE AUTH
                 ============================ --}}
                 @auth
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('profile.index', auth()->user()) }}">
+                            Mi perfil
+                        </a>
+                    </li>
+
                     <li class="nav-item ms-3">
                         <form action="{{ url('/cerrar-sesion') }}" method="POST">
                             @csrf

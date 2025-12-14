@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProfileController;
 
 // Home y About
 Route::get('/', [HomeController::class, 'home'])->name('home');
@@ -62,3 +63,8 @@ Route::post('cerrar-sesion', [\App\Http\Controllers\AuthController::class, 'logo
 // Users
 Route::get('/users', [AuthController::class, 'index'])->middleware(\App\Http\Middleware\AdminMiddleware::class)->name('users.index')->middleware('auth');
 Route::get('/users/{user}', [AuthController::class, 'view'])->middleware(\App\Http\Middleware\AdminMiddleware::class)->name('users.view')->whereNumber('user')->middleware('auth');
+
+// Profile
+Route::get('/profile/{user}', [ProfileController::class, 'view'])->name('profile.index')->middleware('auth');
+Route::get('/profile/{user}/edit', [ProfileController::class, 'edit'])->name('profile.edit')->whereNumber('user')->middleware('auth');
+Route::put('/profile/{user}', [ProfileController::class, 'update'])->name('profile.update')->middleware('auth');
