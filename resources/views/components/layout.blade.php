@@ -73,7 +73,7 @@
     </nav>
 
     <!-- Contenido principal -->
-    <main class="container-fluid grow py-4">
+    <main class="container-fluid grow">
         @if (session()->has('feedback.message'))
             <div class="alert alert-{{ session()->get('feedback.type', 'success') }}">
                 {!! session()->get('feedback.message') !!}

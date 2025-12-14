@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Review;
-use App\Models\Product; // Importar Product
+use App\Models\Product;
+use App\Models\User; // Importar Product
 use Illuminate\Http\Request;
 
 class ReviewController extends Controller

@@ -35,14 +35,14 @@
                                 <td>{{ Str::limit($review->comment, 50) }}</td>
                                 <td>
                                     <a href="{{ route('reviews.view', $review) }}" class="btn btn-sm btn-info">Ver</a>
-                                    @auth
+                                    @if(auth()->check() && auth()->user()->role === 'admin')
                                     <a href="{{ route('reviews.edit', $review) }}" class="btn btn-sm btn-secondary">Editar</a>
                                     <form action="{{ route('reviews.destroy', $review->id) }}" method="POST" class="d-inline">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-sm btn-danger" onclick="return confirm('¿Eliminar reseña?')">Eliminar</button>
                                     </form>
-                                    @endauth
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach
