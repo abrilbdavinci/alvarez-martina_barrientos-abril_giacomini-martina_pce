@@ -38,9 +38,7 @@
                 <li class="nav-item"><a class="nav-link" href="{{ route('posts.index') }}">Posts</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('products.index') }}">Productos</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('reviews.index') }}">Reseñas</a></li>
-                @if(auth()->check() && auth()->user()->role != 'admin')
-                    <li class="nav-item"><a class="nav-link" href="{{ route('users.index') }}">Premium</a></li>
-                @endif
+                <li class="nav-item"><a class="nav-link" href="{{ route('premium') }}">Premium</a></li>
                 @if(auth()->check() && auth()->user()->role === 'admin')
                     <li class="nav-item"><a class="nav-link" href="{{ route('users.index') }}">Usuarios</a></li>
                 @endif

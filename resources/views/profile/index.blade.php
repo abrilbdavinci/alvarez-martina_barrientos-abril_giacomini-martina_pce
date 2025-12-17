@@ -3,10 +3,10 @@
         <div class="card shadow-sm">
             <div class="card-header bg-primary text-white">
                 <h3 class="mb-0">{{ $user->name ?? 'Nombre Desconocido' }}</h3>
+                <span class="badge bg-secondary ms-2 text-white bg-[#306067] p-2">{{ auth()->user()->role }}</span>
             </div>
             <div class="card-body">
                 <p><strong>Email:</strong> {{ $user->email }}</p>
-                </p>
             </div>
             <div class="card-footer">
                 <a href="{{ route('profile.edit', $user) }}" class="btn btn-secondary">Editar perfil</a>

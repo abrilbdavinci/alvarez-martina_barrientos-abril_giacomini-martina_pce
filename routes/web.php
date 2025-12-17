@@ -9,10 +9,12 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PremiumController;
 
 // Home y About
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/about', [AboutController::class, 'about'])->name('about');
+Route::get('/premium', [PremiumController::class, 'premium'])->name('premium');
 
 // Auth (login/logout)
 
@@ -68,3 +70,5 @@ Route::get('/users/{user}', [AuthController::class, 'view'])->middleware(\App\Ht
 Route::get('/profile/{user}', [ProfileController::class, 'view'])->name('profile.index')->middleware('auth');
 Route::get('/profile/{user}/edit', [ProfileController::class, 'edit'])->name('profile.edit')->whereNumber('user')->middleware('auth');
 Route::put('/profile/{user}', [ProfileController::class, 'update'])->name('profile.update')->middleware('auth');
+// Toggle role (free <-> premium) for authenticated user
+Route::post('/profile/{user}/toggle-role', [ProfileController::class, 'toggleRole'])->name('profile.toggleRole')->middleware('auth');

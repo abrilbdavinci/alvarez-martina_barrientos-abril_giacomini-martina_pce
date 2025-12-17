@@ -38,4 +38,26 @@ class ProfileController extends Controller
 
         return redirect()->route('profile.index', $user)->with('feedback.message', 'Perfil actualizado correctamente.');
     }
+
+    // Toggle role between 'free' and 'premium' for the authenticated user
+    public function toggleRole(Request $request, User $user)
+    {
+        // Only allow the authenticated user to toggle their own role
+        if (auth()->id() !== $user->id) {
+            return redirect()->route('home', $user)->with('feedback.message', 'No autorizado.');
+        }
+
+        $allowed = ['free', 'premium'];
+        $current = $user->role ?? 'free';
+        $new = $current === 'free' ? 'premium' : 'free';
+
+        if (! in_array($current, $allowed)) {
+            $new = 'free';
+        }
+
+        $user->role = $new;
+        $user->save();
+
+        return redirect()->route('premium', $user)->with('feedback.message', 'Rol cambiado a ' . $new . '.');
+    }
 }
