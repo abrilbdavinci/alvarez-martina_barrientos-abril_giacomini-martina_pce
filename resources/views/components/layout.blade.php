@@ -10,18 +10,21 @@
     <link rel="shortcut icon" href="{{ asset('favicon/favicon.ico') }}" />
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('favicon/apple-touch-icon.png') }}" />
     <link rel="manifest" href="{{ asset('favicon/site.webmanifest') }}" />
-    <!-- google fonts -->
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
-</head>
 
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
 
 <body class="d-flex flex-column min-vh-100 bg-light">
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light shadow-sm px-5 rounded-bottom-4 py-3">
-        <a href="{{ route('home') }}">
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm px-5 rounded-bottom py-3 bg-white">
+        <a href="{{ route('home') }}" class="navbar-brand">
             <img src="{{ asset('images/logo.svg') }}" alt="Kälm logo dark" style="height: 2vw;">
         </a>
 
@@ -31,7 +34,7 @@
         </button>
 
         <div class="collapse navbar-collapse ms-auto justify-content-end" id="navbarNav">
-            <ul class="navbar-nav fw-semibold d-flex align-items-center">
+            <ul class="navbar-nav fw-semibold align-items-center">
 
                 <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Inicio</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('about') }}">Quiénes somos</a></li>
@@ -43,13 +46,11 @@
                     <li class="nav-item"><a class="nav-link" href="{{ route('users.index') }}">Usuarios</a></li>
                 @endif
 
-                {{-- ===========================
-                    BOTONES DE AUTH
-                ============================ --}}
+                {{-- BOTONES DE AUTH --}}
                 @auth
-                    <li class="nav-item d-flex align-items-center">
-                        <span class="badge bg-secondary ms-2 text-white bg-[#306067] p-2">{{ auth()->user()->role }}</span>
-                        <a class="nav-link" href="{{ route('profile.index', auth()->user()) }}">
+                    <li class="nav-item d-flex align-items-center ms-3">
+                        <span class="badge bg-secondary text-white p-2">{{ auth()->user()->role }}</span>
+                        <a class="nav-link ms-2" href="{{ route('profile.index', auth()->user()) }}">
                             Mi perfil
                         </a>
                     </li>
@@ -81,7 +82,7 @@
     </nav>
 
     <!-- Contenido principal -->
-    <main class="container-fluid grow">
+    <main class="container-fluid flex-grow-1 mt-4">
         @if (session()->has('feedback.message'))
             <div class="alert alert-{{ session()->get('feedback.type', 'success') }}">
                 {!! session()->get('feedback.message') !!}
@@ -91,10 +92,10 @@
     </main>
 
     <!-- Footer -->
-    <footer style="background-color: #306067;" class="text-white text-center py-3 mt-auto rounded-top-5 px-4 pt-5">
+    <footer class="text-white text-center py-3 mt-auto bg-dark rounded-top px-4 pt-5">
         <div class="d-flex justify-content-between flex-wrap">
             <div>
-                <ul style="list-style:none;" class="text-start p-0 m-0">
+                <ul class="list-unstyled text-start p-0 m-0">
                     <li><a class="text-white text-decoration-none" href="{{ route('home') }}">Inicio</a></li>
                     <li><a class="text-white text-decoration-none" href="{{ route('posts.index') }}">Posts</a></li>
                     <li><a class="text-white text-decoration-none" href="{{ route('products.index') }}">Productos</a></li>
@@ -107,5 +108,8 @@
             </div>
         </div>
     </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
