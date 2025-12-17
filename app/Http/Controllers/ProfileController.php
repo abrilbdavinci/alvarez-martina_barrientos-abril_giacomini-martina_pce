@@ -13,20 +13,20 @@ class ProfileController extends Controller
     }
 
     // Mostrar formulario de edición
-    public function edit(User $post)
+    public function edit(User $user)
     {
-        $user = auth()->user();
-        return view('profile.edit', compact('post', 'user'));
+        return view('profile.edit', compact('user'));
     }
 
         // Actualizar perfil
     public function update(Request $request, User $user)
     {
         $request->validate([
-            'name' => 'required|string|max:30'
+            'name' => 'required|string|max:30',
+            'email' => 'required|email|max:255|unique:users,email,' . $user->id,
         ]);
 
-        $data = $request->only(['name']);
+        $data = $request->only(['name', 'email']);
         if ($request->hasFile('image')) {
             if ($user->image && \Storage::disk('public')->exists($user->image)) {
                 \Storage::disk('public')->delete($user->image);

@@ -22,6 +22,11 @@
                 <input type="text" name="name" id="name" class="form-control" value="{{ old('name', $user->name) }}" required>
             </div>
 
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" name="email" id="email" class="form-control" value="{{ old('email', $user->email) }}" required>
+            </div>
+
             <button type="submit" class="btn btn-success">Guardar cambios</button>
             <a href="{{ route('profile.index', $user) }}" class="btn btn-secondary">Cancelar</a>
         </form>
