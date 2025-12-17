@@ -38,9 +38,17 @@ class UserSeeder extends Seeder
                 ],
                 [
                     'name' => 'humilde usuario',
-                    'role' => 'user',
+                    'role' => 'free',
                     'email' => 'usu@ario.com',
                     'password' => Hash::make('nosoyadmin'),
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ],
+                [
+                    'name' => 'usuario2',
+                    'role' => 'premium',
+                    'email' => 'usuario@premium.com',
+                    'password' => Hash::make('soypremium'),
                     'created_at' => now(),
                     'updated_at' => now(),
                 ]

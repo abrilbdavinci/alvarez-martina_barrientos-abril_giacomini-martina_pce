@@ -38,6 +38,9 @@
                 <li class="nav-item"><a class="nav-link" href="{{ route('posts.index') }}">Posts</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('products.index') }}">Productos</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('reviews.index') }}">Reseñas</a></li>
+                @if(auth()->check() && auth()->user()->role != 'admin')
+                    <li class="nav-item"><a class="nav-link" href="{{ route('users.index') }}">Premium</a></li>
+                @endif
                 @if(auth()->check() && auth()->user()->role === 'admin')
                     <li class="nav-item"><a class="nav-link" href="{{ route('users.index') }}">Usuarios</a></li>
                 @endif
@@ -46,7 +49,8 @@
                     BOTONES DE AUTH
                 ============================ --}}
                 @auth
-                    <li class="nav-item">
+                    <li class="nav-item d-flex align-items-center">
+                        <span class="badge bg-secondary ms-2 text-white bg-[#306067] p-2">{{ auth()->user()->role }}</span>
                         <a class="nav-link" href="{{ route('profile.index', auth()->user()) }}">
                             Mi perfil
                         </a>
