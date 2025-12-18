@@ -4,8 +4,9 @@ use Illuminate\Support\Facades\Storage;
 ?>
 
 <x-layout>
+    <x-slot:title>Detalle de Post — {{ $post->title ?? 'Detalle' }}</x-slot:title>
+
     <div class="container my-5">
-        <x-slot:title>Detalle de Post — {{ $post->title ?? 'Detalle' }}</x-slot:title>
 
         @php
             $imagePath = $post->image ?? null;
@@ -22,22 +23,29 @@ use Illuminate\Support\Facades\Storage;
         @endphp
 
         {{-- Imagen principal / placeholder --}}
-        <div class="mb-4 d-flex justify-content-center">
+        <div class="mb-4">
             @if($imageUrl)
-                <img src="{{ $imageUrl }}"
-                     alt="{{ $post->title }}"
-                     class="img-fluid rounded"
-                     style="max-width: 100%; max-height: 480px; object-fit: cover;">
+                <div class="card shadow-sm rounded-4 overflow-hidden">
+                    <img src="{{ $imageUrl }}" 
+                         alt="{{ $post->title }}" 
+                         class="img-fluid" 
+                         style="width:100%; max-height:480px; object-fit:cover;">
+                </div>
             @else
-                <div class="border rounded bg-light d-flex align-items-center justify-content-center"
-                     style="width:100%;max-width:800px;height:240px;">
-                    <span class="text-muted">Sin imagen disponible</span>
+                <div class="card shadow-sm rounded-4 d-flex align-items-center justify-content-center" 
+                     style="width:100%; max-width:800px; height:300px; background-color:#f8f9fa;">
+                    <div class="text-center">
+                        <div class="display-1 text-muted mb-2">&#128247;</div>
+                        <span class="text-muted small">Sin imagen disponible</span>
+                    </div>
                 </div>
             @endif
         </div>
 
-        <h1 class="mb-2">{{ $post->title }}</h1>
+        {{-- Título --}}
+        <h1 class="fw-bold mb-3">{{ $post->title }}</h1>
 
+        {{-- Meta info --}}
         <p class="text-muted mb-4">
             <strong>Autor:</strong> {{ $post->author ?? 'Anónimo' }}
             @if(!empty($post->category))
@@ -48,26 +56,34 @@ use Illuminate\Support\Facades\Storage;
             @endif
         </p>
 
-        <div class="mb-4 fs-5" style="white-space:pre-wrap; line-height:1.6;">
+        {{-- Contenido --}}
+        <div class="mb-4 fs-5" style="white-space:pre-wrap; line-height:1.7;">
             {!! nl2br(e($post->content)) !!}
         </div>
 
-        <div class="d-flex gap-2 flex-wrap">
-            <a href="{{ route('posts.index') }}" class="btn btn-secondary">Volver a Posts</a>
+        {{-- Acciones --}}
+        <div class="d-flex flex-wrap gap-3">
+            <a href="{{ route('posts.index') }}" class="btn btn-secondary rounded-pill px-4 py-2">
+                Volver a Posts
+            </a>
 
             @auth
-                <a href="{{ route('posts.edit', ['post' => $post->id]) }}" class="btn btn-outline-primary">
-                    <i class="bi bi-pencil"></i> Editar
-                </a>
+                @if(auth()->user()->role === 'admin')
+                    <a href="{{ route('posts.edit', $post) }}" class="btn btn-primary rounded-pill px-4 py-2">
+                        <i class="bi bi-pencil me-1"></i> Editar
+                    </a>
 
-                <form action="{{ route('posts.destroy', ['post' => $post->id]) }}" method="POST" onsubmit="return confirm('¿Confirma que desea eliminar este post?');">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger">
-                        <i class="bi bi-trash"></i> Eliminar
-                    </button>
-                </form>
+                    <form action="{{ route('posts.destroy', $post) }}" method="POST" 
+                          onsubmit="return confirm('¿Confirma que desea eliminar este post?');">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger rounded-pill px-4 py-2">
+                            <i class="bi bi-trash me-1"></i> Eliminar
+                        </button>
+                    </form>
+                @endif
             @endauth
         </div>
+
     </div>
 </x-layout>

@@ -1,6 +1,7 @@
 <!-- filepath: resources/views/components/layout.blade.php -->
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,11 +11,13 @@
     <link rel="shortcut icon" href="{{ asset('favicon/favicon.ico') }}" />
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('favicon/apple-touch-icon.png') }}" />
     <link rel="manifest" href="{{ asset('favicon/site.webmanifest') }}" />
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap"
+        rel="stylesheet">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -24,61 +27,64 @@
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm px-5 rounded-bottom py-3 bg-white">
-        <a href="{{ route('home') }}" class="navbar-brand">
-            <img src="{{ asset('images/logo.svg') }}" alt="Kälm logo dark" style="height: 2vw;">
-        </a>
+        <div class="container">
+            <a href="{{ route('home') }}" class="navbar-brand">
+                <img src="{{ asset('images/logo.svg') }}" alt="Kälm logo dark" style="height: 2vw;">
+            </a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse ms-auto justify-content-end" id="navbarNav">
-            <ul class="navbar-nav fw-semibold align-items-center">
+            <div class="collapse navbar-collapse ms-auto justify-content-end" id="navbarNav">
+                <ul class="navbar-nav fw-semibold align-items-center">
 
-                <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('about') }}">Quiénes somos</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('posts.index') }}">Posts</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('products.index') }}">Productos</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('reviews.index') }}">Reseñas</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('premium') }}">Premium</a></li>
-                @if(auth()->check() && auth()->user()->role === 'admin')
-                    <li class="nav-item"><a class="nav-link" href="{{ route('users.index') }}">Usuarios</a></li>
-                @endif
+                    <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('about') }}">Quiénes somos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('posts.index') }}">Posts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('products.index') }}">Productos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('reviews.index') }}">Reseñas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('premium') }}">Premium</a></li>
+                    @if (auth()->check() && auth()->user()->role === 'admin')
+                        <li class="nav-item"><a class="nav-link" href="{{ route('users.index') }}">Usuarios</a></li>
+                    @endif
 
-                {{-- BOTONES DE AUTH --}}
-                @auth
-                    <li class="nav-item d-flex align-items-center ms-3">
-                        <span class="badge bg-secondary text-white p-2">{{ auth()->user()->role }}</span>
-                        <a class="nav-link ms-2" href="{{ route('profile.index', auth()->user()) }}">
-                            Mi perfil
-                        </a>
-                    </li>
+                    {{-- BOTONES DE AUTH --}}
+                    @auth
+                        <li class="nav-item d-flex align-items-center ms-3">
+                            <span class="badge bg-secondary text-white p-2">{{ auth()->user()->role }}</span>
+                            <a class="nav-link ms-2" href="{{ route('profile.index', auth()->user()) }}">
+                                Mi perfil
+                            </a>
+                        </li>
 
-                    <li class="nav-item ms-3">
-                        <form action="{{ url('/cerrar-sesion') }}" method="POST">
-                            @csrf
-                            <button type="submit" class="btn btn-danger btn-sm px-3">
-                                Cerrar sesión
-                            </button>
-                        </form>
-                    </li>
-                @else
-                    <li class="nav-item ms-3">
-                        <a href="{{ route('auth.login') }}" class="btn btn-outline-primary btn-sm px-3">
-                            Iniciar sesión
-                        </a>
-                    </li>
+                        <li class="nav-item ms-3">
+                            <form action="{{ url('/cerrar-sesion') }}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-danger btn-sm px-3">
+                                    Cerrar sesión
+                                </button>
+                            </form>
+                        </li>
+                    @else
+                        <li class="nav-item ms-3">
+                            <a href="{{ route('auth.login') }}" class="btn btn-primary btn-sm px-3">
+                                Iniciar sesión
+                            </a>
+                        </li>
 
-                    <li class="nav-item ms-2">
-                        <a href="{{ route('auth.register') }}" class="btn btn-primary btn-sm px-3">
-                            Registrarse
-                        </a>
-                    </li>
-                @endauth
+                        <li class="nav-item ms-2">
+                            <a href="{{ route('auth.register') }}" class="btn btn-secondary btn-sm px-3">
+                                Registrarse
+                            </a>
+                        </li>
+                    @endauth
 
-            </ul>
+                </ul>
+            </div>
         </div>
+
     </nav>
 
     <!-- Contenido principal -->
@@ -93,15 +99,16 @@
 
     <!-- Footer -->
     <footer class="text-white text-center py-3 mt-auto bg-dark rounded-top px-4 pt-5">
-        <div class="d-flex justify-content-between flex-wrap">
+        <div class="container d-flex justify-content-between flex-wrap">
             <div>
                 <ul class="list-unstyled text-start p-0 m-0">
                     <li><a class="text-white text-decoration-none" href="{{ route('home') }}">Inicio</a></li>
                     <li><a class="text-white text-decoration-none" href="{{ route('posts.index') }}">Posts</a></li>
-                    <li><a class="text-white text-decoration-none" href="{{ route('products.index') }}">Productos</a></li>
+                    <li><a class="text-white text-decoration-none" href="{{ route('products.index') }}">Productos</a>
+                    </li>
                     <li><a class="text-white text-decoration-none" href="{{ route('reviews.index') }}">Reseñas</a></li>
                 </ul>
-                <p class="mt-3">&copy; {{ date('Y') }} Kälm. All rights reserved.</p>
+                <p class="mt-3">&copy; {{ date('Y') }} Kälm</p>
             </div>
             <div class="text-end d-flex flex-column align-items-end flex-wrap">
                 <img style="height: 2vw;" src="{{ asset('images/logolight.svg') }}" alt="Kälm logo">
@@ -112,4 +119,5 @@
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
