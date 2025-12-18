@@ -38,7 +38,7 @@
             </button>
 
             <div class="collapse navbar-collapse ms-auto justify-content-end" id="navbarNav">
-                <ul class="navbar-nav fw-semibold align-items-center">
+                <ul class="navbar-nav fw-semibold align-items-end">
 
                     <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('about') }}">Quiénes somos</a></li>
