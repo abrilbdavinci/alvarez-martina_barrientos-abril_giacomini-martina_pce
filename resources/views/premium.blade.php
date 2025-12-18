@@ -13,7 +13,7 @@
 
         <!-- Plan + detalle -->
         <div class="row justify-content-center align-items-start g-4">
-            
+
             <!-- Card Plan -->
             <div class="col-12 col-lg-5">
                 <div class="card shadow-sm rounded-4 overflow-hidden border-0">
@@ -43,13 +43,16 @@
                         </ul>
 
                         <!-- Acción: solo para usuarios que no sean admin -->
-                        @if(auth()->check() && auth()->user()->role !== 'admin')
+                        @if (auth()->check() && auth()->user()->role !== 'admin')
                             <form action="{{ route('profile.toggleRole', auth()->user()) }}" method="POST" class="mt-auto">
                                 @csrf
-                                <button type="submit"
-                                        class="btn btn-primary rounded-pill w-100 py-2 fw-bold"
+                                <button type="submit" class="btn btn-primary rounded-pill w-100 py-2 fw-bold"
                                         style="background-color:#2F5C64; color:#fff;">
-                                    @if((auth()->user()->role ?? 'free') === 'free') Hacerse Premium @else Volver a Free @endif
+                                    @if ((auth()->user()->role ?? 'free') === 'free')
+                                        Hacerse Premium
+                                    @else
+                                        Volver a Free
+                                    @endif
                                 </button>
                             </form>
                         @endif
@@ -58,23 +61,46 @@
                 </div>
             </div>
 
-            <!-- Detalle de beneficios -->
-            <div class="col-12 col-lg-6">
-                <h4 class="fw-bold mb-3">Detalle de cada beneficio</h4>
-                <div class="bg-light p-4 rounded-4 shadow-sm">
-                    <p class="mb-3">
-                        <strong>Todo lo incluido en Kälm Free:</strong> Acceso a diagnóstico básico de piel y cabello, recomendaciones de rutina y consejos de cuidado diario.
-                    </p>
-                    <p class="mb-3">
-                        <strong>Diagnóstico avanzado de piel y cabello:</strong> Evaluación profunda para entender tus necesidades específicas y personalizar tu rutina.
-                    </p>
-                    <p class="mb-3">
-                        <strong>Rutinas personalizables ilimitadas:</strong> Creá todas las combinaciones de cuidado que necesites, sin restricciones.
-                    </p>
-                    <p class="mb-0">
-                        <strong>Self-pack de bienvenida:</strong> Recibí una caja con artículos exclusivos de Kälm y la posibilidad de renovarlo mensualmente.
-                    </p>
+            <!-- Detalle de beneficios + Bienvenida -->
+            <div class="col-12 col-lg-6 d-flex flex-column gap-4">
+
+                <!-- Beneficios -->
+                <div>
+                    <h4 class="fw-bold mb-3">Detalle de cada beneficio</h4>
+                    <div class="bg-light p-4 rounded-4 shadow-sm">
+                        <p class="mb-3">
+                            <strong>Todo lo incluido en Kälm Free:</strong> Acceso a diagnóstico básico de piel y cabello, recomendaciones de rutina y consejos de cuidado diario.
+                        </p>
+                        <p class="mb-3">
+                            <strong>Diagnóstico avanzado de piel y cabello:</strong> Evaluación profunda para entender tus necesidades específicas y personalizar tu rutina.
+                        </p>
+                        <p class="mb-3">
+                            <strong>Rutinas personalizables ilimitadas:</strong> Creá todas las combinaciones de cuidado que necesites, sin restricciones.
+                        </p>
+                        <p class="mb-0">
+                            <strong>Self-pack de bienvenida:</strong> Recibí una caja con artículos exclusivos de Kälm y la posibilidad de renovarlo mensualmente.
+                        </p>
+                    </div>
                 </div>
+
+                <!-- Bienvenida Premium debajo de los beneficios -->
+                @auth
+                    @if (auth()->user()->role === 'premium')
+                        <div class="p-4 rounded-4 shadow-sm bg-gradient d-flex flex-column flex-md-row align-items-center gap-3" style="background-color:#DDF3F5;">
+                            <div class="flex-grow-1">
+                                <h3 class="fw-bold mb-2" style="color:#2F5C64;">¡Bienvenido a Premium!</h3>
+                                <p class="mb-3 text-secondary">Disfrutá de todos los beneficios exclusivos y pedí tu self-pack mensual.</p>
+                                <a class="btn btn-primary rounded-pill py-2 px-4" style="background-color:#2F5C64; color:#fff;">
+                                    Solicitar Self-pack
+                                </a>
+                            </div>
+                            <div>
+                                <img src="{{ asset('images/self-pack.png') }}" alt="Bienvenido Premium" class="img-fluid" style="max-height:250px;">
+                            </div>
+                        </div>
+                    @endif
+                @endauth
+
             </div>
 
         </div>

@@ -13,28 +13,28 @@
             </div>
 
             @auth
-                <a href="{{ route('products.create') }}"
-                   class="btn btn-primary text-white rounded-pill px-4 mt-3 mt-md-0">
-                    Crear Producto
-                </a>
+                @if (auth()->user()->role === 'admin')
+                    <a href="{{ route('products.create') }}"
+                        class="btn btn-primary text-white rounded-pill px-4 mt-3 mt-md-0">
+                        Crear Producto
+                    </a>
+                @endif
             @endauth
         </div>
 
         <!-- Grid de productos -->
         <div class="row g-4">
-            @foreach($products as $product)
+            @foreach ($products as $product)
                 <div class="col-12 col-sm-6 col-lg-4">
                     <div class="card h-100 shadow border-0 rounded-4 overflow-hidden">
 
                         <!-- Imagen -->
-                        @if($product->image)
-                            <img src="{{ asset('storage/' . $product->image) }}"
-                                 alt="{{ $product->name }}"
-                                 class="img-fluid"
-                                 style="height:250px; object-fit:cover;">
+                        @if ($product->image)
+                            <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}"
+                                class="img-fluid" style="height:250px; object-fit:contain;">
                         @else
                             <div class="bg-light d-flex align-items-center justify-content-center"
-                                 style="height:250px;">
+                                style="height:250px;">
                                 <span class="text-muted small">Sin imagen</span>
                             </div>
                         @endif
@@ -64,24 +64,22 @@
                             <!-- Acciones -->
                             <div class="mt-auto d-flex flex-wrap gap-2">
                                 <a href="{{ route('products.view', $product) }}"
-                                   class="btn btn-info btn-sm rounded-pill flex-grow-1">
+                                    class="btn btn-info btn-sm rounded-pill flex-grow-1">
                                     Ver
                                 </a>
 
-                                @if(auth()->check() && auth()->user()->role === 'admin')
+                                @if (auth()->check() && auth()->user()->role === 'admin')
                                     <a href="{{ route('products.edit', $product) }}"
-                                       class="btn btn-secondary btn-sm rounded-pill flex-grow-1">
+                                        class="btn btn-secondary btn-sm rounded-pill flex-grow-1">
                                         Editar
                                     </a>
 
-                                    <form action="{{ route('products.destroy', $product) }}"
-                                          method="POST"
-                                          class="flex-grow-1">
+                                    <form action="{{ route('products.destroy', $product) }}" method="POST"
+                                        class="flex-grow-1">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit"
-                                                class="btn btn-danger btn-sm rounded-pill w-100"
-                                                onclick="return confirm('¿Eliminar producto?')">
+                                        <button type="submit" class="btn btn-danger btn-sm rounded-pill w-100"
+                                            onclick="return confirm('¿Eliminar producto?')">
                                             Eliminar
                                         </button>
                                     </form>

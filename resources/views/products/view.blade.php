@@ -16,7 +16,7 @@
                         <img src="{{ asset('storage/' . $product->image) }}"
                              alt="{{ $product->name }}"
                              class="img-fluid rounded-4"
-                             style="max-height:420px; object-fit:cover;">
+                             style="max-height:420px; object-fit:contain;">
                     @endif
                 </div>
             </div>

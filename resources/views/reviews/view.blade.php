@@ -15,7 +15,7 @@
                         <img src="{{ asset('storage/' . $review->product->image) }}"
                              alt="{{ $review->product->name }}"
                              class="img-fluid"
-                             style="height:250px; object-fit:cover;">
+                             style="height:250px; object-fit:contain;">
                     @else
                         <div class="bg-light d-flex align-items-center justify-content-center"
                              style="height:250px;">

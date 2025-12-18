@@ -39,13 +39,14 @@ Route::put('/products/{product}', [ProductController::class, 'update'])->name('p
 
 // Posts
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
-Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create')->middleware(\App\Http\Middleware\AdminMiddleware::class)->middleware('auth');
-Route::post('/posts', [PostController::class, 'store'])->name('posts.store')->middleware(\App\Http\Middleware\AdminMiddleware::class)->middleware('auth');
+Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create')->middleware('auth');
+Route::post('/posts', [PostController::class, 'store'])->name('posts.store')->middleware('auth');
 Route::get('/posts/{post}', [PostController::class, 'view'])->name('posts.view')->whereNumber('post');
-Route::get('/posts/{post}/delete', [PostController::class, 'delete'])->name('posts.delete')->middleware(\App\Http\Middleware\AdminMiddleware::class)->middleware('auth');
-Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy')->middleware(\App\Http\Middleware\AdminMiddleware::class)->middleware('auth');
-Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit')->middleware(\App\Http\Middleware\AdminMiddleware::class)->middleware('auth');
-Route::put('/posts/{post}', [PostController::class, 'update'])->name('posts.update')->middleware(\App\Http\Middleware\AdminMiddleware::class)->middleware('auth');
+Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit')->middleware('auth');
+Route::put('/posts/{post}', [PostController::class, 'update'])->name('posts.update')->middleware('auth');
+Route::get('/posts/{post}/delete', [PostController::class, 'delete'])->name('posts.delete')->middleware('auth');
+Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy')->middleware('auth');
+
 
 // Reviews
 Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');

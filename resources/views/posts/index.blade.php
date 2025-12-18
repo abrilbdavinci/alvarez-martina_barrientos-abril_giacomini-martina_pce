@@ -17,16 +17,26 @@
             </div>
 
             @auth
-                <a href="{{ route('posts.create') }}"
-                   class="btn btn-primary rounded-pill px-4 mt-3 mt-md-0">
-                    Crear Post
-                </a>
+                @if (auth()->user()->role === 'premium' || auth()->user()->role === 'admin')
+                    <a href="{{ route('posts.create') }}" class="btn btn-primary rounded-pill px-4 mt-3 mt-md-0">
+                        Crear Post
+                    </a>
+                @else
+                    <span class="badge bg-warning text-dark px-3 py-2 mt-3 mt-md-0">
+                        Debes ser Premium para crear posts
+                    </span>
+                @endif
             @endauth
         </div>
 
         <!-- Cards -->
         <div class="row g-4">
-            @foreach($posts as $post)
+            @foreach ($posts as $post)
+                @php
+                    $user = auth()->user();
+                    $isAdmin = $user && $user->role === 'admin';
+                @endphp
+
                 <div class="col-12 col-sm-6 col-lg-4">
                     <div class="card h-100 shadow border-0 rounded-4 d-flex flex-column">
 
@@ -48,21 +58,27 @@
 
                             <!-- Acciones -->
                             <div class="mt-auto d-flex flex-wrap gap-2">
+                                {{-- Todos pueden ver --}}
                                 <a href="{{ route('posts.view', $post) }}"
-                                   class="btn btn-info btn-sm rounded-pill flex-grow-1">
+                                    class="btn btn-info btn-sm rounded-pill flex-grow-1">
                                     Ver
                                 </a>
 
-                                @if(auth()->check() && auth()->user()->role === 'admin')
+                                {{-- Solo Admin puede editar --}}
+                                @if ($isAdmin)
                                     <a href="{{ route('posts.edit', $post) }}"
-                                       class="btn btn-secondary btn-sm rounded-pill flex-grow-1">
+                                        class="btn btn-secondary btn-sm rounded-pill flex-grow-1">
                                         Editar
                                     </a>
 
-                                    <a href="{{ route('posts.delete', $post) }}"
-                                       class="btn btn-danger btn-sm rounded-pill flex-grow-1">
-                                        Eliminar
-                                    </a>
+                                    <form action="{{ route('posts.destroy', $post) }}" method="POST"
+                                        class="flex-grow-1" onsubmit="return confirm('¿Desea eliminar este post?');">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm rounded-pill w-100">
+                                            Eliminar
+                                        </button>
+                                    </form>
                                 @endif
                             </div>
                         </div>
@@ -70,6 +86,7 @@
                     </div>
                 </div>
             @endforeach
+
         </div>
 
     </div>
